@@ -35,11 +35,11 @@ speed_bike.lss \
 FLASH_IMAGE += \
 speed_bike.hex \
 
+EEPROM_IMAGE += \
+speed_bike.eep \
+
 SIZEDUMMY += \
 sizedummy \
-
-AVRDUDEDUMMY += \
-avrdudedummy \
 
 
 # All Target
@@ -65,24 +65,24 @@ speed_bike.hex: speed_bike.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
+speed_bike.eep: speed_bike.elf
+	@echo 'Create eeprom image (ihex format)'
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex speed_bike.elf  "speed_bike.eep"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 sizedummy: speed_bike.elf
 	@echo 'Invoking: Print Size'
 	-avr-size --format=avr --mcu=atmega8 speed_bike.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
-avrdudedummy: speed_bike.elf
-	@echo 'Invoking: AVRDude'
-	Z:\Soft\avrdude\avrdude -pm8 -cusbasp -y -Uflash:w:speed_bike.hex:a
-	@echo 'Finished building: $@'
-	@echo ' '
-
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C_DEPS)$(ASM_DEPS)$(FLASH_IMAGE)$(ELFS)$(LSS)$(AVRDUDEDUMMY)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS) speed_bike.elf
+	-$(RM) $(OBJS)$(C_DEPS)$(ASM_DEPS)$(EEPROM_IMAGE)$(FLASH_IMAGE)$(ELFS)$(LSS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS) speed_bike.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY) $(AVRDUDEDUMMY)
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:
