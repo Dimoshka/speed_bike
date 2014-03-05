@@ -2,8 +2,11 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include "nokia5110.h"
+
+
 static void nokia5110_send1byte(char cData, char data);
 static void nokia5110_write_char(unsigned char c);
+
 /**
  * Переместить курсор, и в этой строке начинает печать, он будет автоматически перенесен
  * @param y стартовая строка
