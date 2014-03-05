@@ -13,3 +13,11 @@ environment/project/de.innot.avreclipse.configuration.app.release.1071407916/PAT
 environment/project/de.innot.avreclipse.configuration.app.release.1071407916/PATH/value=Z\:\\Soft\\WinAVR\\bin;Z\:\\Soft\\MinGW\\msys\\1.0\\bin;Z\:/Soft/eclipse/jre/bin/../jre/bin/server;Z\:/Soft/eclipse/jre/bin/../jre/bin;Z\:/Soft/eclipse/jre/bin/../jre/lib/amd64;C\:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C\:\\Program Files\\ImageMagick-6.8.6-Q16;C\:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C\:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;C\:\\Windows\\system32;C\:\\Windows;C\:\\Windows\\System32\\Wbem;C\:\\Program Files (x86)\\Windows Live\\Shared;C\:\\Program Files (x86)\\Toshiba\\Bluetooth Toshiba Stack\\sys\\;C\:\\Program Files (x86)\\Toshiba\\Bluetooth Toshiba Stack\\sys\\x64\\;C\:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C\:\\Program Files\\Java\\jre7\\bin;C\:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Program Files (x86)\\QuickTime\\QTSystem\\;C\:\\Program Files\\TortoiseGit\\bin;C\:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;Z\:\\Soft\\eclipse;Z\:\\Soft\\MinGW\\msys\\1.0\\bin
 environment/project/de.innot.avreclipse.configuration.app.release.1071407916/append=true
 environment/project/de.innot.avreclipse.configuration.app.release.1071407916/appendContributed=true
+environment/project/de.innot.avreclipse.toolchain.winavr.base.2088695925/AVRTARGETFCPU/delimiter=\:
+environment/project/de.innot.avreclipse.toolchain.winavr.base.2088695925/AVRTARGETFCPU/operation=replace
+environment/project/de.innot.avreclipse.toolchain.winavr.base.2088695925/AVRTARGETFCPU/value=8000000
+environment/project/de.innot.avreclipse.toolchain.winavr.base.2088695925/AVRTARGETMCU/delimiter=\:
+environment/project/de.innot.avreclipse.toolchain.winavr.base.2088695925/AVRTARGETMCU/operation=replace
+environment/project/de.innot.avreclipse.toolchain.winavr.base.2088695925/AVRTARGETMCU/value=atmega8
+environment/project/de.innot.avreclipse.toolchain.winavr.base.2088695925/append=true
+environment/project/de.innot.avreclipse.toolchain.winavr.base.2088695925/appendContributed=true

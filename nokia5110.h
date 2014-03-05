@@ -12,7 +12,6 @@
 #define NOKIA5110_NOMAL_MODE 	(0x0c) //Нормальный режим
 
 // LCD				ATmage8
-
 // 1 - RST:	PB2
 // 2 - CE: Gnd
 // 3 - DC: PB1
@@ -35,4 +34,5 @@ extern void nokia5110_mvprint(unsigned char y, unsigned char x, char *str);
 extern void nokia5110_mv(unsigned char y, unsigned char x);
 extern void nokia5110_print(char * string);
 extern void nokia5110_drawpix(unsigned char y,unsigned char x);
+
 #endif

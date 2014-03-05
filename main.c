@@ -1,6 +1,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
-#include "main.h"
+#include "nokia5110.h"
+#include "watch.h"
 
 int main(void) {
 	nokia5110_init();
@@ -16,4 +17,5 @@ int main(void) {
 		nokia5110_clear();
 		nokia5110_mvprint(0, 0, get_watch());
 	}
+	return 0;
 }

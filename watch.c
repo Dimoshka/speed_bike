@@ -1,14 +1,15 @@
-/*
- * time.c
- *
- *  Created on: 20.11.2013
- *      Author: designers
+#include <avr/interrupt.h>
+#include <stdio.h>
+#include "watch.h"
+
+/* Clock frequency		:	8,000000 MHz
+ * delay				:	256
+ * Timer delay			:	31,250 KHz
  */
 
-#include <avr/interrupt.h>
+unsigned int  time_dalay = 31250;
 
 struct Timer {
-
 	unsigned int tic;
 	unsigned int seconds;
 	unsigned int minutes;
@@ -30,10 +31,11 @@ int isLeapYear(int month) {
 }
 ;
 
+
 ISR( TIMER2_OVF_vect) {
 	timer.tic++;
 
-	if (timer.tic % 2 == 0) {
+	if (timer.tic == time_dalay) {
 
 		//Секунда
 		timer.seconds++;
@@ -77,17 +79,16 @@ ISR( TIMER2_OVF_vect) {
 				}
 			}
 		}
-		//PORTB |= (1 << PB0);
-		//} else {
-		//PORTB &= ~(1 << PB0);
+		PORTB &= ~(1 << PB0);
+		timer.tic=0;
 	}
 }
 
-char get_watch(void) {
-	char *time_str;
-	sprintf(time_str, "%h:%i:%s %y-%m-%d", timer.hours, timer.minutes,
-			timer.seconds, timer.year, timer.month, timer.days);
-	return time_str;
+
+ char* const get_watch(void) {
+	static char buffer[20];
+	sprintf(buffer, "%i:%i:%i %i-%i-%i", timer.hours, timer.minutes, timer.seconds, timer.year, timer.month, timer.days);
+	return buffer;
 }
 
 void watch_init(void) {
@@ -95,6 +96,6 @@ void watch_init(void) {
 	TCCR2 = 0x05;
 	TCNT2 = 0x00;
 	OCR2 = 0x00;
-	TIMSK = 0b01000000;
+	TIMSK = 0x40;
 	sei();
 }

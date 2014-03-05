@@ -1,3 +1,6 @@
+#include "ascii.h"
+
+
 // 6 x 8 font
 // 1 pixel space at left and bottom
 // index = ASCII - 32

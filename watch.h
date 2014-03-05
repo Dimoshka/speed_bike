@@ -1,7 +1,14 @@
+/*
+ * watch.h
+ *
+ *  Created on: 05 марта 2014 г.
+ *      Author: designers
+ */
+
 #ifndef WATCH_H_
 #define WATCH_H_
 
+extern char* const get_watch(void);
 extern void watch_init(void);
-extern char get_watch(void);
 
-#endif /* TIME_H_ */
+#endif /* WATCH_H_ */

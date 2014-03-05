@@ -32,14 +32,8 @@ endif
 LSS += \
 speed_bike.lss \
 
-FLASH_IMAGE += \
-speed_bike.hex \
-
 SIZEDUMMY += \
 sizedummy \
-
-AVRDUDEDUMMY += \
-avrdudedummy \
 
 
 # All Target
@@ -59,30 +53,18 @@ speed_bike.lss: speed_bike.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
-speed_bike.hex: speed_bike.elf
-	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -O ihex speed_bike.elf  "speed_bike.hex"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 sizedummy: speed_bike.elf
 	@echo 'Invoking: Print Size'
 	-avr-size --format=avr --mcu=atmega8 speed_bike.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
-avrdudedummy: speed_bike.elf
-	@echo 'Invoking: AVRDude'
-	Z:\Soft\avrdude\avrdude -pm8 -cusbasp -y -Uflash:w:speed_bike.hex:a
-	@echo 'Finished building: $@'
-	@echo ' '
-
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C_DEPS)$(ASM_DEPS)$(FLASH_IMAGE)$(ELFS)$(LSS)$(AVRDUDEDUMMY)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS) speed_bike.elf
+	-$(RM) $(OBJS)$(C_DEPS)$(ASM_DEPS)$(ELFS)$(LSS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS) speed_bike.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY) $(AVRDUDEDUMMY)
+secondary-outputs: $(LSS) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:

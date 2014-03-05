@@ -1,6 +1,5 @@
 #include <avr/io.h>
 #include <util/delay.h>
-#include <stdio.h>
 #include "spi.h"
 void SPI_MasterInit(void)
 {

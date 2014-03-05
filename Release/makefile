@@ -61,7 +61,7 @@ speed_bike.lss: speed_bike.elf
 
 speed_bike.hex: speed_bike.elf
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -O ihex speed_bike.elf  "speed_bike.hex"
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex speed_bike.elf  "speed_bike.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
